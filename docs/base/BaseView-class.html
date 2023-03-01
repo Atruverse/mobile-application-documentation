@@ -55,6 +55,12 @@
 </h1></div>
 
     
+<section class="desc markdown">
+  <p>This is the class which every UI screen extends.
+<code>Controller</code> Since every BaseView has to have a
+controller, passing an instance of controller
+to every screen is mandatory.</p>
+</section>
 
 
     <section>
@@ -171,7 +177,11 @@
 
 </dt>
 <dd>
-  
+  Used to define AppBart for screens by overriding
+this method. Although this is an abstract class, overriding
+this method is not compulsory since this class have
+already provided a default implementation for it.
+Returns the appbar that you design for your screen.
   
 
 </dd>
@@ -184,7 +194,10 @@
 
 </dt>
 <dd>
-  
+  The body of screen. Do not return an scaffold because
+it's the body of an scaffold already. Overriding this method
+is mandatory since no implementation is provided for this
+method by default.
   
 
 </dd>
@@ -197,7 +210,7 @@
 
 </dt>
 <dd>
-  
+  Used to provide a bottom navigation bar for the screen.
   
 
 </dd>
@@ -210,7 +223,7 @@
 
 </dt>
 <dd>
-  Describes the part of the user interface represented by this widget.
+  this is overrode from <code>GetView</code>. Do not override it at all.
   <div class="features"><span class="feature">override</span></div>
 
 </dd>
@@ -263,7 +276,7 @@ children.
 
 </dt>
 <dd>
-  
+  To provide the drawer that opens from left to right.
   
 
 </dd>
@@ -276,7 +289,7 @@ children.
 
 </dt>
 <dd>
-  
+  To provide the drawer that opens from right to left.
   
 
 </dd>
@@ -289,7 +302,8 @@ children.
 
 </dt>
 <dd>
-  
+  If it returns <code>true</code>, scaffold's body
+will go underneath the app bar.
   
 
 </dd>
@@ -302,7 +316,8 @@ children.
 
 </dt>
 <dd>
-  
+  If it returns <code>true</code>, scaffold's body
+will go underneath the navigation bar.
   
 
 </dd>
@@ -315,7 +330,8 @@ children.
 
 </dt>
 <dd>
-  
+  Override it to provide a floating action button
+for your screen.
   
 
 </dd>
@@ -328,20 +344,8 @@ children.
 
 </dt>
 <dd>
-  
-  
-
-</dd>
-
-        <dt id="isSingleBody" class="callable">
-  <span class="name"><a href="../base/BaseView/isSingleBody.html">isSingleBody</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; bool</span>
-  </span>
-  
-
-</dt>
-<dd>
-  
+  Override it to change where you want your floating action button
+to be located.
   
 
 </dd>
@@ -367,7 +371,12 @@ children.
 
 </dt>
 <dd>
-  
+  The action that will happen if user presses the
+back button of his phone.
+If you want to forbid returning to the previous screen, return
+false from this function when you override it. Moreover, if
+you want to perform any tasks before going back to the previous
+screen, do it inside this function.
   
 
 </dd>
@@ -380,33 +389,7 @@ children.
 
 </dt>
 <dd>
-  
-  
-
-</dd>
-
-        <dt id="pageContent" class="callable">
-  <span class="name"><a href="../base/BaseView/pageContent.html">pageContent</a></span><span class="signature">(<wbr><span class="parameter" id="pageContent-param-context"><span class="type-annotation">BuildContext</span> <span class="parameter-name">context</span></span>)
-    <span class="returntype parameter">&#8594; Widget</span>
-  </span>
-  
-
-</dt>
-<dd>
-  
-  
-
-</dd>
-
-        <dt id="pageScaffold" class="callable">
-  <span class="name"><a href="../base/BaseView/pageScaffold.html">pageScaffold</a></span><span class="signature">(<wbr><span class="parameter" id="pageScaffold-param-context"><span class="type-annotation">BuildContext</span> <span class="parameter-name">context</span></span>)
-    <span class="returntype parameter">&#8594; Widget</span>
-  </span>
-  
-
-</dt>
-<dd>
-  
+  To specify the background color of screen.
   
 
 </dd>
@@ -419,7 +402,8 @@ children.
 
 </dt>
 <dd>
-  
+  If this method returns <code>true</code>, the page will be resized to
+avoid bottom sheet inset.
   
 
 </dd>
@@ -432,7 +416,9 @@ children.
 
 </dt>
 <dd>
-  
+  If it returns <code>true</code>, the screen will be wrapped
+with a <code>SafeArea</code> widget. Otherwise, not.
+Override it to change the functionality according to your needs.
   
 
 </dd>
@@ -445,7 +431,9 @@ children.
 
 </dt>
 <dd>
-  
+  This method is used to set the scaffold key of the screen.
+an Scaffold key is used to perform many actions such as
+opening and closing menu and so on.
   
 
 </dd>
@@ -458,7 +446,8 @@ children.
 
 </dt>
 <dd>
-  
+  If it returns <code>true</code>, the screen will be wrapped
+inside a <code>WillPopScope</code>.
   
 
 </dd>
@@ -471,20 +460,8 @@ children.
 
 </dt>
 <dd>
-  
-  
-
-</dd>
-
-        <dt id="statusBarColor" class="callable">
-  <span class="name"><a href="../base/BaseView/statusBarColor.html">statusBarColor</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; Color</span>
-  </span>
-  
-
-</dt>
-<dd>
-  
+  <code>message</code> is the text that should be shown inside the snackBar.
+Call this method where ever you want inside your screen.
   
 
 </dd>
@@ -497,7 +474,8 @@ children.
 
 </dt>
 <dd>
-  
+  By default the tabletBody is the same as the body that you specified.
+If you want to change it, override this method.
   
 
 </dd>
@@ -576,7 +554,8 @@ tools and by <code>DiagnosticsNode.toStringDeep</code>.
 
 </dt>
 <dd>
-  
+  By default the webBody is the same as the body that you specified.
+If you want to change it, override this method.
   
 
 </dd>
@@ -672,18 +651,14 @@ tools and by <code>DiagnosticsNode.toStringDeep</code>.
           <li><a href="../base/BaseView/extendBodyBehindNavigationBar.html">extendBodyBehindNavigationBar</a></li>
           <li><a href="../base/BaseView/floatingActionButton.html">floatingActionButton</a></li>
           <li><a href="../base/BaseView/floatingActionButtonLocation.html">floatingActionButtonLocation</a></li>
-          <li><a href="../base/BaseView/isSingleBody.html">isSingleBody</a></li>
           <li class="inherited"><a href="../base/BaseView/noSuchMethod.html">noSuchMethod</a></li>
           <li><a href="../base/BaseView/onWillPop.html">onWillPop</a></li>
           <li><a href="../base/BaseView/pageBackgroundColor.html">pageBackgroundColor</a></li>
-          <li><a href="../base/BaseView/pageContent.html">pageContent</a></li>
-          <li><a href="../base/BaseView/pageScaffold.html">pageScaffold</a></li>
           <li><a href="../base/BaseView/resizeToAvoidBottomInset.html">resizeToAvoidBottomInset</a></li>
           <li><a href="../base/BaseView/safeArea.html">safeArea</a></li>
           <li><a href="../base/BaseView/setScaffoldKey.html">setScaffoldKey</a></li>
           <li><a href="../base/BaseView/setWillPopScope.html">setWillPopScope</a></li>
           <li><a href="../base/BaseView/showErrorSnackBar.html">showErrorSnackBar</a></li>
-          <li><a href="../base/BaseView/statusBarColor.html">statusBarColor</a></li>
           <li><a href="../base/BaseView/tabletBody.html">tabletBody</a></li>
           <li class="inherited"><a href="../base/BaseView/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
           <li class="inherited"><a href="../base/BaseView/toString.html">toString</a></li>
@@ -707,7 +682,7 @@ tools and by <code>DiagnosticsNode.toStringDeep</code>.
 <footer>
   <span class="no-break">
     atroverse
-      1.0.0+1
+      1.0.0
   </span>
 
   

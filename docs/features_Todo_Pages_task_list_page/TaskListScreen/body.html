@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the body method from the TaskListScreen class, for the Dart programming language.">
+  <title>body method - TaskListScreen class - task_list_page library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">atroverse</a></li>
+    <li><a href="../../features_Todo_Pages_task_list_page/features_Todo_Pages_task_list_page-library.html">task_list_page</a></li>
+    <li><a href="../../features_Todo_Pages_task_list_page/TaskListScreen-class.html">TaskListScreen</a></li>
+    <li class="self-crumb">body method</li>
+  </ol>
+  <div class="self-name">body</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span class="material-symbols-outlined">
+        brightness_4
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">body</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">body</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="body-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget body(BuildContext context) {
+  return SizedBox(
+    height: Get.height,
+    width: Get.width,
+    child: CustomScrollView(
+      slivers: [
+        SliverPersistentHeader(
+          delegate: CustomAppBar(
+            height: Get.height * .1,
+            title: controller.rawName == &quot;1&quot;
+                ? &quot;ToDay&quot;
+                : (controller.rawName == &quot;Free&quot;)
+                    ? &quot;${controller.rawName} Notes&quot;
+                    : (controller.rawName == &quot;365&quot;)
+                        ? &quot;Year&quot;
+                        : (controller.rawName == &quot;30&quot;)
+                            ? &quot;Month&quot;
+                            : (controller.rawName == &quot;7&quot;)
+                                ? &quot;Week&quot;
+                                : &quot;&quot;,
+            isBack: true,
+            isOnTap: false,
+          ),
+          pinned: false,
+          floating: true,
+        ),
+        SliverToBoxAdapter(
+          child: Column(
+            children: [
+              GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemCount: controller.listOfNotes2.length,
+                itemBuilder: (_, index) {
+                  final note = controller.listOfNotes2[index];
+                  return GestureDetector(
+                    onLongPress: () {
+                      controller.showDelete(note.id);
+                    },
+                    child: OpenContainer(
+                        openElevation: 0,
+                        onClosed: (n) {
+                          controller.getData();
+                        },
+                        closedColor: Colors.white,
+                        middleColor: Colors.white,
+                        closedElevation: 0,
+                        openColor: Colors.white,
+                        transitionType: ContainerTransitionType.fadeThrough,
+                        closedBuilder: (_, c) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: note.isChecked == 1 &amp;&amp;
+                                      controller.rawName != &quot;Free&quot;
+                                  ? Colors.black
+                                  : Color(int.parse(note.color)),
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade200,
+                                  spreadRadius: 3,
+                                  blurRadius: 6,
+                                )
+                              ],
+                            ),
+                            margin: const EdgeInsets.all(5),
+                            child: Column(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceEvenly,
+                              children: [
+                                if (controller.rawName == &quot;Free&quot;) ...{
+                                  SizedBox(height: Get.height * .005),
+                                },
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    note.title.toString(),
+                                    maxLines: 2,
+                                    textAlign: TextAlign.center,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        color: note.isChecked == 1 &amp;&amp;
+                                                controller.rawName != &quot;Free&quot;
+                                            ? Colors.white
+                                            : (note.color == &quot;0xffFF0000&quot; ||
+                                                    note.color ==
+                                                        &quot;0xff0000FF&quot; ||
+                                                    note.color ==
+                                                        &quot;0xff000000&quot;)
+                                                ? Colors.white
+                                                : Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    (controller.rawName == &quot;Free&quot; ||
+                                            controller.rawName == &quot;1&quot;)
+                                        ? Container()
+                                        : Text(
+                                            note.toDate!,
+                                            style: TextStyle(
+                                              color: note.isChecked == 1
+                                                  ? Colors.white
+                                                  : (note.color ==
+                                                              &quot;0xffFF0000&quot; ||
+                                                          note.color ==
+                                                              &quot;0xff0000FF&quot; ||
+                                                          note.color ==
+                                                              &quot;0xff000000&quot;)
+                                                      ? Colors.white
+                                                      : Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    (controller.rawName == &quot;Free&quot;)
+                                        ? Container()
+                                        : (controller.rawName == &quot;1&quot;)
+                                            ? Column(
+                                                children: [
+                                                  Center(
+                                                    child: Text(
+                                                      note.fromDate!,
+                                                      style: TextStyle(
+                                                        color: note.isChecked ==
+                                                                1
+                                                            ? Colors.white
+                                                            : (note.color ==
+                                                                        &quot;0xffFF0000&quot; ||
+                                                                    note.color ==
+                                                                        &quot;0xff0000FF&quot; ||
+                                                                    note.color ==
+                                                                        &quot;0xff000000&quot;)
+                                                                ? Colors.white
+                                                                : Colors
+                                                                    .black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 14,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    note.day!,
+                                                    style: TextStyle(
+                                                      color: note.isChecked ==
+                                                              1
+                                                          ? Colors.white
+                                                          : (note.color ==
+                                                                      &quot;0xffFF0000&quot; ||
+                                                                  note.color ==
+                                                                      &quot;0xff0000FF&quot; ||
+                                                                  note.color ==
+                                                                      &quot;0xff000000&quot;)
+                                                              ? Colors.white
+                                                              : Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 14,
+                                                    ),
+                                                  )
+                                                ],
+                                              )
+                                            : Text(
+                                                note.fromDate!,
+                                                style: TextStyle(
+                                                  color: note.isChecked == 1
+                                                      ? Colors.white
+                                                      : (note.color ==
+                                                                  &quot;0xffFF0000&quot; ||
+                                                              note.color ==
+                                                                  &quot;0xff0000FF&quot; ||
+                                                              note.color ==
+                                                                  &quot;0xff000000&quot;)
+                                                          ? Colors.white
+                                                          : Colors.black,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                        openBuilder: (_, c) {
+                          return AddBox(
+                            day: note.day.toString(),
+                            rawName: controller.rawName,
+                            note: note,
+                            catId: controller.catId,
+                            id: note.id.toString(),
+                            isEdit: true,
+                            list: note.listOfCheckBox!,
+                          );
+                        }),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">atroverse</a></li>
+  <li><a href="../../features_Todo_Pages_task_list_page/features_Todo_Pages_task_list_page-library.html">task_list_page</a></li>
+  <li><a href="../../features_Todo_Pages_task_list_page/TaskListScreen-class.html">TaskListScreen</a></li>
+  <li class="self-crumb">body method</li>
+</ol>
+
+
+    <h5>TaskListScreen class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../features_Todo_Pages_task_list_page/TaskListScreen-class.html#constructors">Constructors</a></li>
+          <li><a href="../../features_Todo_Pages_task_list_page/TaskListScreen/TaskListScreen.html">TaskListScreen</a></li>
+
+
+        <li class="section-title inherited">
+          <a href="../../features_Todo_Pages_task_list_page/TaskListScreen-class.html#instance-properties">Properties</a>
+        </li>
+          <li class="inherited"><a href="https://pub.dev/documentation/get/4.6.5/get_state_manager_src_simple_get_view/GetView/controller.html">controller</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+          <li class="inherited"><a href="https://pub.dev/documentation/get/4.6.5/get_state_manager_src_simple_get_view/GetView/tag.html">tag</a></li>
+
+        <li class="section-title"><a href="../../features_Todo_Pages_task_list_page/TaskListScreen-class.html#instance-methods">Methods</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/appBar.html">appBar</a></li>
+          <li><a href="../../features_Todo_Pages_task_list_page/TaskListScreen/body.html">body</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/bottomNavigationBar.html">bottomNavigationBar</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/build.html">build</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/drawer.html">drawer</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/endDrawer.html">endDrawer</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/extendBodyBehindAppBar.html">extendBodyBehindAppBar</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/extendBodyBehindNavigationBar.html">extendBodyBehindNavigationBar</a></li>
+          <li><a href="../../features_Todo_Pages_task_list_page/TaskListScreen/floatingActionButton.html">floatingActionButton</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/floatingActionButtonLocation.html">floatingActionButtonLocation</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/isSingleBody.html">isSingleBody</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+          <li><a href="../../features_Todo_Pages_task_list_page/TaskListScreen/onWillPop.html">onWillPop</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/pageBackgroundColor.html">pageBackgroundColor</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/pageContent.html">pageContent</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/pageScaffold.html">pageScaffold</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/resizeToAvoidBottomInset.html">resizeToAvoidBottomInset</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/safeArea.html">safeArea</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/setScaffoldKey.html">setScaffoldKey</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/setWillPopScope.html">setWillPopScope</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/showErrorSnackBar.html">showErrorSnackBar</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/statusBarColor.html">statusBarColor</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/tabletBody.html">tabletBody</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
+          <li class="inherited"><a href="../../Core_Base_base_view/BaseView/webBody.html">webBody</a></li>
+
+        <li class="section-title inherited"><a href="../../features_Todo_Pages_task_list_page/TaskListScreen-class.html#operators">Operators</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    atroverse
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

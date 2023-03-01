@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the pages property from the AppPages class, for the Dart programming language.">
+  <title>pages property - AppPages class - app_pages library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">atro</a></li>
+    <li><a href="../../Core_Routes_app_pages/Core_Routes_app_pages-library.html">app_pages</a></li>
+    <li><a href="../../Core_Routes_app_pages/AppPages-class.html">AppPages</a></li>
+    <li class="self-crumb">pages property</li>
+  </ol>
+  <div class="self-name">pages</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span class="material-symbols-outlined">
+        brightness_4
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-property">pages</span> property 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+        <section class="multi-line-signature">
+          
+          <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/get/4.6.5/get_navigation_src_routes_get_route/GetPage-class.html">GetPage</a></span>&gt;</span>
+          <span class="name ">pages</span>
+          <div class="features"><span class="feature">final</span></div>
+
+        </section>
+        
+
+        
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static final pages = &lt;GetPage&gt;[
+  GetPage(
+    name: AppRoutes.splash,
+    page: () =&gt; const SplashScreen(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.home,
+    page: () =&gt; const MainPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.login,
+    page: () =&gt; const LoginPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.register,
+    page: () =&gt; const RegisterPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.registerVerify,
+    page: () =&gt; const RegisterVerifyPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.forgetPassword,
+    page: () =&gt; const ForgetPasswordPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.roles,
+    page: () =&gt; const RolesPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.editProfile,
+    page: () =&gt; const EditProfilePage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.changePassword,
+    page: () =&gt; const ChangePasswordPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.changeEmail,
+    page: () =&gt; const ChangeEmailPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.deleteAccount,
+    page: () =&gt; const DeleteAccountPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.atroAdd,
+    page: () =&gt; const AtroAddPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.atroList,
+    page: () =&gt; const AtroListPage(),
+    transition: Transition.fadeIn,
+  ),
+
+  GetPage(
+    name: AppRoutes.willAdd,
+    page: () =&gt; const WillAddPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.friendAdd,
+    page: () =&gt; const FriendAddPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.friendDetails,
+    page: () =&gt; const FriendDetailsPage(),
+    transition: Transition.fadeIn,
+    binding: FriendDetailsBinding(),
+  ),
+  GetPage(
+    name: AppRoutes.friendAddStory,
+    page: () =&gt; const FriendAddStoryPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.postDetails,
+    page: () =&gt; const PostDetailsPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.postInterface,
+    page: () =&gt; const PostInterfacePage(),
+    transition: Transition.fadeIn,
+  ),
+
+  &#47;&#47;&#47; archives
+  GetPage(
+    name: AppRoutes.archivedPosts,
+    page: () =&gt; const ArchivedPosts(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.archivedPostsWidget,
+    page: () =&gt; const ArchivedPostsWidget(),
+    transition: Transition.fadeIn,
+  ),
+
+  &#47;&#47;&#47; updates
+  GetPage(
+    name: AppRoutes.updateAtro,
+    page: () =&gt; const AtroUpdatePage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.updateWill,
+    page: () =&gt; const WillUpdatePage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.updateFriend,
+    page: () =&gt; const FriendUpdatePage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.updateStory,
+    page: () =&gt; const FriendStoryUpdatePage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.blockedList,
+    page: () =&gt; const BlockedListPage(),
+    transition: Transition.fadeIn,
+  ),
+
+  &#47;&#47;&#47; Music
+  GetPage(
+    name: AppRoutes.musicAdd,
+    page: () =&gt; const MusicAddPage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.musicPlayer,
+    page: () =&gt; const MusicPlayerScreen(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.musicUpdate,
+    page: () =&gt; const MusicUpdatePage(),
+    transition: Transition.fadeIn,
+  ),
+  GetPage(
+    name: AppRoutes.musicList,
+    page: () =&gt; const MusicList(),
+    transition: Transition.fadeIn,
+  ),
+
+  GetPage(
+    name: AppRoutes.friendMainProfile,
+    page: () =&gt; const FriendProfileScreen(),
+    transition: Transition.fadeIn,
+  ),
+
+
+  &#47;&#47;   GetPage(
+  &#47;&#47;     name: AppRoutes.login,
+  &#47;&#47;     page: () =&gt; LoginPage(),
+  &#47;&#47;   ),
+  &#47;&#47;   GetPage(
+  &#47;&#47;     name: AppRoutes.messageDetails,
+  &#47;&#47;     page: () =&gt; MessageDetailsPage(),
+  &#47;&#47;     binding: BindingsBuilder(
+  &#47;&#47;       () {
+  &#47;&#47;         Get.put&lt;MessageDetailsController&gt;(
+  &#47;&#47;           MessageDetailsController(
+  &#47;&#47;             Get.find&lt;MessageRepository&gt;(),
+  &#47;&#47;             Get.find&lt;GlobalRepository&gt;(),
+  &#47;&#47;             Get.find&lt;CountdownTimerComponent&gt;(),
+  &#47;&#47;           ),
+  &#47;&#47;           tag: Get.arguments[0].toString(),
+  &#47;&#47;         );
+  &#47;&#47;       },
+  &#47;&#47;     ),
+  &#47;&#47;   ),
+];</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">atro</a></li>
+  <li><a href="../../Core_Routes_app_pages/Core_Routes_app_pages-library.html">app_pages</a></li>
+  <li><a href="../../Core_Routes_app_pages/AppPages-class.html">AppPages</a></li>
+  <li class="self-crumb">pages property</li>
+</ol>
+
+
+    <h5>AppPages class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../Core_Routes_app_pages/AppPages-class.html#constructors">Constructors</a></li>
+          <li><a href="../../Core_Routes_app_pages/AppPages/AppPages.html">AppPages</a></li>
+
+
+        <li class="section-title inherited">
+          <a href="../../Core_Routes_app_pages/AppPages-class.html#instance-properties">Properties</a>
+        </li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+        <li class="section-title inherited"><a href="../../Core_Routes_app_pages/AppPages-class.html#instance-methods">Methods</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+        <li class="section-title inherited"><a href="../../Core_Routes_app_pages/AppPages-class.html#operators">Operators</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+        <li class="section-title"><a href="../../Core_Routes_app_pages/AppPages-class.html#static-properties">Static properties</a></li>
+          <li><a href="../../Core_Routes_app_pages/AppPages/pages.html">pages</a></li>
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    atro
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

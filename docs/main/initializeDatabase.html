@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the main function from the main library, for the Dart programming language.">
-  <title>main function - main library - Dart API</title>
+  <meta name="description" content="API docs for the initializeDatabase function from the main library, for the Dart programming language.">
+  <title>initializeDatabase function - main library - Dart API</title>
 
 
   
@@ -30,9 +30,9 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">atroverse</a></li>
     <li><a href="../main/main-library.html">main</a></li>
-    <li class="self-crumb">main function</li>
+    <li class="self-crumb">initializeDatabase function</li>
   </ol>
-  <div class="self-name">main</div>
+  <div class="self-name">initializeDatabase</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -49,7 +49,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-function">main</span> function 
+<h1><span class="kind-function">initializeDatabase</span> function 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 </h1></div>
@@ -57,43 +57,31 @@
     <section class="multi-line-signature">
         
 
-<span class="returntype">void</span>
-<span class="name ">main</span>(<wbr>)
+<span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">initializeDatabase</span>(<wbr>)
 
         
 
     </section>
     
+<section class="desc markdown">
+  <p>This function initializes the means of data
+persistence in the app using Hive.
+If you add a new adapter, register it down below.</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void main() async {
-  await initializeDatabase();
-  runApp(
-    &#47;&#47;&#47; The whole widget tree is wrapped within ScreenUtilInit
-    &#47;&#47;&#47; for making use of the features inside flutter_screenutil package.
-    ScreenUtilInit(builder: (context, child) {
-      return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-
-        &#47;&#47;&#47; All the pages are defined the mixin below and are
-        &#47;&#47;&#47; passed to the &lt;code&gt;getPages&lt;&#47;code&gt; parameter to let
-        &#47;&#47;&#47; GetX know of all the pages inside this app. Since routing is
-        &#47;&#47;&#47; also done with GetX in this app.
-        getPages: AppPages.pages,
-
-        &#47;&#47;&#47; App is started with an splash screen then, after the needed
-        &#47;&#47;&#47; initializations happened, the user will be guided to
-        &#47;&#47;&#47; either home page or register page.
-        home: const SplashScreen(),
-
-        &#47;&#47;&#47; All repository and controller binding happen down below.
-        initialBinding: GlobalBinding(),
-      );
-    }),
-  );
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; initializeDatabase() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(UserDataModelAdapter());
+  Hive.registerAdapter(UserTokensModelAdapter());
+  Hive.registerAdapter(AtroModelAdapter());
+  Hive.registerAdapter(WillModelAdapter());
+  Hive.registerAdapter(FriendModelAdapter());
+  Hive.registerAdapter(FriendStroyModelAdapter());
 }</code></pre>
 </section>
 
@@ -110,7 +98,7 @@
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../index.html">atroverse</a></li>
   <li><a href="../main/main-library.html">main</a></li>
-  <li class="self-crumb">main function</li>
+  <li class="self-crumb">initializeDatabase function</li>
 </ol>
 
 

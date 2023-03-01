@@ -81,25 +81,8 @@ async request.</p>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 void onReady() async {
-  &#47;&#47; var getSettingsResult = await globalRepo.getSettings();
-  &#47;&#47; if (getSettingsResult.resultData != null) {
-  &#47;&#47;   _settings.value = getSettingsResult.resultData;
-  &#47;&#47;   if (_settings.value!.forceUpdate ?? false) {
-  &#47;&#47;     await ShowDialogComponent(
-  &#47;&#47;       message:
-  &#47;&#47;           &#39;Please update app to version ${_settings.value!.lastVersion}&#39;,
-  &#47;&#47;       title: &#39;update&#39;,
-  &#47;&#47;     ).show().then((value) =&gt; exit(0));
-  &#47;&#47;   }
-  &#47;&#47; } else {
-  &#47;&#47;   await ShowDialogComponent(
-  &#47;&#47;     message: &#39;error get data from server&#39;,
-  &#47;&#47;     title: &#39;error&#39;,
-  &#47;&#47;   ).show().then((value) =&gt; exit(0));
-  &#47;&#47; }
   await initData();
   super.onReady();
-
   return;
 }</code></pre>
 </section>

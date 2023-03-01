@@ -71,11 +71,21 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void main() async {
   runApp(
+    &#47;&#47;&#47; The whole widget tree is wrapped within ScreenUtilInit
+    &#47;&#47;&#47; for making use of the features inside flutter_screenutil package.
     ScreenUtilInit(builder: (context, child) {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
+        &#47;&#47;&#47; All the pages are defined the mixin below and are
+        &#47;&#47;&#47; passed to the &lt;code&gt;getPages&lt;&#47;code&gt; parameter to let
+        &#47;&#47;&#47; GetX know of all the pages inside this app. Since routing is
+        &#47;&#47;&#47; also done with GetX in this app.
         getPages: AppPages.pages,
+        &#47;&#47;&#47; App is started with an splash screen then, after the needed
+        &#47;&#47;&#47; initializations happened, the user will be guided to
+        &#47;&#47;&#47; either home page or register page.
         home: const SplashScreen(),
+        &#47;&#47;&#47; All repository and controller binding happen down below.
         initialBinding: GlobalBinding(),
       );
     }),

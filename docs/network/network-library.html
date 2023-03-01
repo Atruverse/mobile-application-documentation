@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="base library API docs, for the Dart programming language.">
-  <title>base library - Dart API</title>
+  <meta name="description" content="network library API docs, for the Dart programming language.">
+  <title>network library - Dart API</title>
 
 
   
@@ -29,9 +29,9 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../index.html">atroverse</a></li>
-    <li class="self-crumb">base library</li>
+    <li class="self-crumb">network library</li>
   </ol>
-  <div class="self-name">base</div>
+  <div class="self-name">network</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -49,7 +49,7 @@
   <div id="dartdoc-main-content" class="main-content">
     
       <div>
-<h1><span class="kind-library">base</span> library 
+<h1><span class="kind-library">network</span> library 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 </h1></div>
@@ -61,24 +61,38 @@
       <h2>Classes</h2>
 
       <dl>
-        <dt id="BaseController">
-  <span class="name "><a href="../base/BaseController-class.html">BaseController</a></span> 
+        <dt id="NetworkExceptions">
+  <span class="name "><a href="../network/NetworkExceptions-class.html">NetworkExceptions</a></span> 
 
 </dt>
 <dd>
-  This is the class which every controller
-extends.
+  This class is used to instantiate the
+exception when API calls happen.
 </dd>
 
-        <dt id="BaseView">
-  <span class="name "><a href="../base/BaseView-class.html">BaseView</a><span class="signature">&lt;<wbr><span class="type-parameter">Controller extends <a href="../base/BaseController-class.html">BaseController</a></span>&gt;</span></span> 
+        <dt id="RestClient">
+  <span class="name "><a href="../network/RestClient-class.html">RestClient</a></span> 
 
 </dt>
 <dd>
-  This is the class which every UI screen extends.
-<code>Controller</code> Since every BaseView has to have a
-controller, passing an instance of controller
-to every screen is mandatory.
+  Used to perform REST API actions.
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="mixins">
+      <h2>Mixins</h2>
+
+      <dl>
+        <dt id="DownloadFileType">
+  <span class="name "><a href="../network/DownloadFileType-mixin.html">DownloadFileType</a></span> 
+
+</dt>
+<dd>
+  when I wanted to download a file of a link from the internet
+I needed a way to tell downloadFile method to save the downloaded
+file as what, that's why I made this mixin.
 </dd>
 
       </dl>
@@ -88,7 +102,21 @@ to every screen is mandatory.
 
 
 
+    <section class="summary offset-anchor" id="enums">
+      <h2>Enums</h2>
 
+      <dl>
+        <dt id="RequestType">
+  <span class="name "><a href="../network/RequestType.html">RequestType</a></span> 
+
+</dt>
+<dd>
+  Different types of requests that can be send
+to server.
+</dd>
+
+      </dl>
+    </section>
 
 
 
@@ -103,7 +131,7 @@ to every screen is mandatory.
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
   <li><a href="../index.html">atroverse</a></li>
-  <li class="self-crumb">base library</li>
+  <li class="self-crumb">network library</li>
 </ol>
 
 
@@ -119,17 +147,21 @@ to every screen is mandatory.
   </div>
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
-    <h5>base library</h5>
+    <h5>network library</h5>
     <ol>
-      <li class="section-title"><a href="../base/base-library.html#classes">Classes</a></li>
-        <li><a href="../base/BaseController-class.html">BaseController</a></li>
-        <li><a href="../base/BaseView-class.html">BaseView</a></li>
+      <li class="section-title"><a href="../network/network-library.html#classes">Classes</a></li>
+        <li><a href="../network/NetworkExceptions-class.html">NetworkExceptions</a></li>
+        <li><a href="../network/RestClient-class.html">RestClient</a></li>
+
+
+      <li class="section-title"><a href="../network/network-library.html#mixins">Mixins</a></li>
+        <li><a href="../network/DownloadFileType-mixin.html">DownloadFileType</a></li>
 
 
 
 
-
-
+      <li class="section-title"><a href="../network/network-library.html#enums">Enums</a></li>
+        <li><a href="../network/RequestType.html">RequestType</a></li>
 
 
 </ol>

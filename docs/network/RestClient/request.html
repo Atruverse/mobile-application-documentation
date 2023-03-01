@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the request method from the RestClient class, for the Dart programming language.">
+  <title>request method - RestClient class - network library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">atroverse</a></li>
+    <li><a href="../../network/network-library.html">network</a></li>
+    <li><a href="../../network/RestClient-class.html">RestClient</a></li>
+    <li class="self-crumb">request&lt;<wbr><span class="type-parameter">T</span>&gt; method</li>
+  </ol>
+  <div class="self-name">request</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span class="material-symbols-outlined">
+        brightness_4
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">request&lt;<wbr><span class="type-parameter">T</span>&gt;</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">ApiResult<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
+<span class="name ">request</span>&lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="request-param-url"><span class="type-annotation">String</span> <span class="parameter-name">url</span>, </span></li>
+<li><span class="parameter" id="request-param-headers">{<span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span>?</span> <span class="parameter-name">headers</span>, </span></li>
+<li><span class="parameter" id="request-param-data"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> <span class="parameter-name">data</span>, </span></li>
+<li><span class="parameter" id="request-param-isFormData"><span class="type-annotation">bool</span> <span class="parameter-name">isFormData</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="request-param-type"><span>required</span> <span class="type-annotation"><a href="../../network/RequestType.html">RequestType</a></span> <span class="parameter-name">type</span>}</span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Performs requests to API.
+<code>type</code> Type of request. That's required.
+<code>url</code> The url to send the request to.
+<code>headers</code> request headers.
+<code>data</code> the data to be sent to server. Only required
+if <code>type</code> if patch, put or post.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;ApiResult&lt;T&gt;&gt; request&lt;T&gt;(String url,
+    {Map&lt;String, String&gt;? headers,
+      final Map&lt;String, dynamic&gt;? data,
+      final bool isFormData = false,
+      required RequestType type}) async {
+  try {
+    _dio.options = http.BaseOptions(headers: headers ?? defaultHeader);
+    http.Response? response;
+    var body = isFormData ? http.FormData.fromMap(data ?? {}) : data;
+    switch(type) {
+      case RequestType.get:
+        response = await _dio.get(url);
+        break;
+      case RequestType.post:
+        response = await _dio.post(
+            url,
+            data: body
+        );
+        break;
+      case RequestType.delete:
+        response = await _dio.delete(url);
+        break;
+      case RequestType.put:
+        response = await _dio.put(
+            url,
+            data: body
+        );
+        break;
+      case RequestType.patch:
+        response = await _dio.patch(
+            url,
+            data: body
+        );
+        break;
+    }
+    final results = response.data;
+    log(
+      &#39;results restRequest: $results &#47;&#47; statusCode: ${response.statusCode}&#39;,
+    );
+    return ApiResult.success(data: results);
+  } on http.DioError catch (e) {
+    log(&#39;hasError: ${e.response}&#39;);
+    if (e.response != null) {
+      final error = handleErrorStatus(e.response!);
+      ShowMessageCompanent(message: error.result!).show();
+      return ApiResult.failure(error: error);
+    } else {
+      ShowMessageCompanent(
+              message:
+                  NetworkExceptions(result: &#39;Check your internet&#39;).result!)
+          .show();
+      return ApiResult.failure(
+        error: NetworkExceptions(result: &#39;Check your internet&#39;),
+      );
+    }
+  } catch (e) {
+    return ApiResult.failure(
+      error: NetworkExceptions(
+          result: &quot;Please check your internet connection and try again&quot;),
+    );
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">atroverse</a></li>
+  <li><a href="../../network/network-library.html">network</a></li>
+  <li><a href="../../network/RestClient-class.html">RestClient</a></li>
+  <li class="self-crumb">request&lt;<wbr><span class="type-parameter">T</span>&gt; method</li>
+</ol>
+
+
+    <h5>RestClient class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../network/RestClient-class.html#constructors">Constructors</a></li>
+          <li><a href="../../network/RestClient/RestClient.html">RestClient</a></li>
+
+
+        <li class="section-title">
+          <a href="../../network/RestClient-class.html#instance-properties">Properties</a>
+        </li>
+          <li><a href="../../network/RestClient/defaultHeader.html">defaultHeader</a></li>
+          <li class="inherited"><a href="../../network/RestClient/hashCode.html">hashCode</a></li>
+          <li class="inherited"><a href="../../network/RestClient/runtimeType.html">runtimeType</a></li>
+
+        <li class="section-title"><a href="../../network/RestClient-class.html#instance-methods">Methods</a></li>
+          <li><a href="../../network/RestClient/download.html">download</a></li>
+          <li><a href="../../network/RestClient/handleErrorStatus.html">handleErrorStatus</a></li>
+          <li class="inherited"><a href="../../network/RestClient/noSuchMethod.html">noSuchMethod</a></li>
+          <li><a href="../../network/RestClient/request.html">request</a></li>
+          <li class="inherited"><a href="../../network/RestClient/toString.html">toString</a></li>
+
+        <li class="section-title inherited"><a href="../../network/RestClient-class.html#operators">Operators</a></li>
+          <li class="inherited"><a href="../../network/RestClient/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    atroverse
+      1.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

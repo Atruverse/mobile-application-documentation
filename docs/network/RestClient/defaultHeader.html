@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the defaultHeader property from the RestClient class, for the Dart programming language.">
-  <title>defaultHeader property - RestClient class - network library - Dart API</title>
+  <meta name="description" content="API docs for the defaultHeader method from the RestClient class, for the Dart programming language.">
+  <title>defaultHeader method - RestClient class - network library - Dart API</title>
 
 
   
@@ -31,7 +31,7 @@
     <li><a href="../../index.html">atroverse</a></li>
     <li><a href="../../network/network-library.html">network</a></li>
     <li><a href="../../network/RestClient-class.html">RestClient</a></li>
-    <li class="self-crumb">defaultHeader property</li>
+    <li class="self-crumb">defaultHeader method</li>
   </ol>
   <div class="self-name">defaultHeader</div>
   <form class="search navbar-right" role="search">
@@ -50,30 +50,35 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-property">defaultHeader</span> property 
+<h1><span class="kind-method">defaultHeader</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
-        <section class="multi-line-signature">
-          
-          Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span>
-          <span class="name ">defaultHeader</span>
-          <div class="features"><span class="feature">read / write</span></div>
+    <section class="multi-line-signature">
+      
 
-        </section>
-        
+<span class="returntype">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span>
+<span class="name ">defaultHeader</span>(<wbr>)
+
+      
+
+    </section>
+    
 <section class="desc markdown">
   <p>In case no header is passed to the CRUD
 functions, this header will be used.</p>
 </section>
 
-        
+
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Map&lt;String, String&gt; defaultHeader = {
-  &#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;,
-  &#39;Authorization&#39;: Get.find&lt;GlobalController&gt;().token,
-};</code></pre>
+  <pre class="language-dart"><code class="language-dart">Map&lt;String, String&gt; defaultHeader() {
+  return {
+    &#39;X-Requested-With&#39;: &#39;XMLHttpRequest&#39;,
+    &#39;Authorization&#39;: Get.find&lt;GlobalController&gt;().token,
+  };
+}</code></pre>
 </section>
 
 
@@ -90,7 +95,7 @@ functions, this header will be used.</p>
   <li><a href="../../index.html">atroverse</a></li>
   <li><a href="../../network/network-library.html">network</a></li>
   <li><a href="../../network/RestClient-class.html">RestClient</a></li>
-  <li class="self-crumb">defaultHeader property</li>
+  <li class="self-crumb">defaultHeader method</li>
 </ol>
 
 
@@ -101,14 +106,14 @@ functions, this header will be used.</p>
           <li><a href="../../network/RestClient/RestClient.html">RestClient</a></li>
 
 
-        <li class="section-title">
+        <li class="section-title inherited">
           <a href="../../network/RestClient-class.html#instance-properties">Properties</a>
         </li>
-          <li><a href="../../network/RestClient/defaultHeader.html">defaultHeader</a></li>
           <li class="inherited"><a href="../../network/RestClient/hashCode.html">hashCode</a></li>
           <li class="inherited"><a href="../../network/RestClient/runtimeType.html">runtimeType</a></li>
 
         <li class="section-title"><a href="../../network/RestClient-class.html#instance-methods">Methods</a></li>
+          <li><a href="../../network/RestClient/defaultHeader.html">defaultHeader</a></li>
           <li><a href="../../network/RestClient/download.html">download</a></li>
           <li><a href="../../network/RestClient/handleErrorStatus.html">handleErrorStatus</a></li>
           <li class="inherited"><a href="../../network/RestClient/noSuchMethod.html">noSuchMethod</a></li>

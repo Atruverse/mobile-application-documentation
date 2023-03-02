@@ -77,7 +77,7 @@ of their controllers since GetX doesn't know of their controller's
 existence.
 In this project, controller binding takes place inside the core folder of
 any library separately. Here is a sample code of binding a controller.</p>
-<pre class="language-dart"><code class="language-dart">Get.lazyPut&lt;TodoRepository&gt;(
+<pre class="language-dart"><code class="language-dart">Get.lazyPut&lt;Todo&gt;(
    () =&gt; TodoRepositoryImp(),
    fenix: true,
 );
@@ -185,7 +185,6 @@ If you add a new adapter, register it down below.
     <h5><span class="package-name">atroverse</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
-      <li><a href="../base/base-library.html">base</a></li>
       <li><a href="../base/base-library.html">base</a></li>
       <li><a href="../main/main-library.html">main</a></li>
       <li><a href="../network/network-library.html">network</a></li>
